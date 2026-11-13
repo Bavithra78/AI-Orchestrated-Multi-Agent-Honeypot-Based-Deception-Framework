@@ -1,0 +1,55 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DeceptAI Threat Monitor</title>
+<style>
+:root{--bg:#0e1621;--panel:#152131;--line:#243449;--tx:#e6edf5;--mu:#8da2b8;--ac:#34c6d8;--rd:#ff5d73;--am:#f2b84b;--gn:#4cc38a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.4 system-ui,Segoe UI,sans-serif}
+header{padding:16px 28px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+h1{font-size:20px;margin:0}small{color:var(--mu)}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;padding:20px 28px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.card b{font-size:28px;display:block}.card span{color:var(--mu);font-size:13px}
+main{display:grid;grid-template-columns:340px 1fr;gap:14px;padding:0 28px 28px}
+.list{max-height:70vh;overflow:auto}.sess{padding:11px 14px;border-bottom:1px solid var(--line);cursor:pointer}
+.sess:hover,.sess.on{background:#1b2c42}.sess code{font-weight:600}
+.tag{float:right;font-size:12px;border:1px solid var(--ac);color:var(--ac);border-radius:99px;padding:1px 9px}
+.tag.High{border-color:var(--rd);color:var(--rd)}.tag.Medium{border-color:var(--am);color:var(--am)}.tag.Low{border-color:var(--gn);color:var(--gn)}
+.tl{padding:18px 22px;max-height:70vh;overflow:auto}.ev{display:flex;gap:16px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.ev time{color:var(--mu);width:70px;font-family:ui-monospace,monospace;font-size:13px;flex:none}
+.ev div{flex:1}.ev em{display:block;color:var(--mu);font-style:normal;font-size:13px}
+.cmd{display:inline-block;background:#0b1320;border:1px solid var(--line);border-radius:6px;padding:2px 9px;font-family:ui-monospace,monospace}
+.bar{height:8px;background:#0b1320;border-radius:5px;margin-top:6px;overflow:hidden}.bar i{display:block;height:100%;background:var(--am)}
+@media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}main{grid-template-columns:1fr}}
+</style></head><body>
+<header><div><h1>DeceptAI Threat Monitor</h1><small>Reactive deception dashboard, reads logs/forensic_report.json</small></div><small id="up">connecting...</small></header>
+<section class="stats">
+<div class="card"><b id="s1">0</b><span>Sessions observed</span></div>
+<div class="card"><b id="s2" style="color:var(--ac)">0</b><span>Redirected to honeypot</span></div>
+<div class="card"><b id="s3">0</b><span>Attacker commands captured</span></div>
+<div class="card"><b id="s4" style="color:var(--rd)">0</b><span>Sources auto-blocked</span></div>
+<div class="card"><b id="s5" style="color:var(--am)">0</b><span>Highest engagement score</span></div></section>
+<main><div class="card list" id="list"></div><div class="card tl" id="tl"><small>Select a session</small></div></main>
+<script>
+var data={},sel=null;
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function T(t){return new Date(t*1000).toLocaleTimeString()}
+function find(evs,n){for(var i=0;i<evs.length;i++)if(evs[i].event===n)return evs[i];return null}
+var TXT={alert:'Suspicious message detected',decision:'Decision agent classified threat',honeypot_spawned:'Honeypot clone spawned',redirected:'Attacker silently redirected',attacker_command:'Command captured on honeypot',engagement_score:'Engagement scored',source_blocked:'Source blocked'};
+function sub(e){var d=e.details||{};switch(e.event){
+case'alert':return esc(d.reason||'');case'decision':return 'pillar: '+esc(d.pillar)+' / honeydata: '+esc(d.inject_honeydata);
+case'honeypot_spawned':return 'port '+esc(d.port)+' / '+esc(d.pillar);case'redirected':return 'now talking to honeypot on port '+esc(d.honeypot_port);
+case'attacker_command':return '<span class="cmd">$ '+esc(d.command)+'</span>';
+case'engagement_score':return 'score '+esc(d.score)+' ('+esc(d.level)+') / '+esc(d.commands)+' commands / '+esc(d.dwell_seconds)+' s / '+esc(d.sensitive_touches)+' sensitive touches';
+case'source_blocked':return esc(d.ip)+' for '+esc(d.ttl_s)+' s / '+esc(d.reason);default:return esc(JSON.stringify(d))}}
+function render(){var ids=Object.keys(data),cmds=0,red=0,blk=0,mx=0,h='';
+ids.sort(function(a,b){return (data[b][0]?data[b][0].timestamp:0)-(data[a][0]?data[a][0].timestamp:0)});
+ids.forEach(function(id){var ev=data[id],sc=find(ev,'engagement_score'),n=0;ev.forEach(function(e){if(e.event==='attacker_command')n++});
+cmds+=n;if(find(ev,'redirected'))red++;if(find(ev,'source_blocked'))blk++;var s=sc?sc.details.score:0;if(s>mx)mx=s;
+var dec=find(ev,'decision'),hp=find(ev,'honeypot_spawned');
+h+='<div class="sess'+(id===sel?' on':'')+'" data-id="'+esc(id)+'"><span class="tag '+(sc?esc(sc.details.level):'')+'">'+(sc?esc(sc.details.level)+' '+s:(dec?esc(dec.details.pillar):'normal'))+'</span><code>'+esc(id)+'</code><br><small>'+n+' commands'+(hp?' / honeypot :'+esc(hp.details.port):'')+'</small>'+(sc?'<div class="bar"><i style="width:'+s+'%"></i></div>':'')+'</div>'});
+document.getElementById('list').innerHTML=h||'<small>No sessions yet. Run attacker_simulator.py</small>';
+document.getElementById('s1').textContent=ids.length;document.getElementById('s2').textContent=red;document.getElementById('s3').textContent=cmds;document.getElementById('s4').textContent=blk;document.getElementById('s5').textContent=mx;
+if(sel&&data[sel]){var t='';data[sel].forEach(function(e){t+='<div class="ev"><time>'+T(e.timestamp)+'</time><div><b>'+esc(TXT[e.event]||e.event)+'</b><em>'+sub(e)+'</em></div></div>'});document.getElementById('tl').innerHTML=t}}
+document.getElementById('list').onclick=function(ev){var n=ev.target;while(n&&!n.getAttribute('data-id'))n=n.parentNode;if(n){sel=n.getAttribute('data-id');render()}};
+function poll(){var x=new XMLHttpRequest();x.open('GET','/api/report');x.onload=function(){try{data=JSON.parse(x.responseText);document.getElementById('up').textContent='live, updated '+new Date().toLocaleTimeString();if(!sel){var k=Object.keys(data);if(k.length)sel=k[k.length-1]}render()}catch(e){}};x.onerror=function(){document.getElementById('up').textContent='offline'};x.send()}
+poll();setInterval(poll,2000);
+</script></body></html>

